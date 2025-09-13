@@ -250,7 +250,7 @@ const InvManagement = () => {
 
                                  
                                 <tbody>
-                                  
+                                   {
                                     allInvoices.map((invoice) =>{  
                                     
                                     return (   
