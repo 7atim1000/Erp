@@ -51,7 +51,6 @@ function Layout() {
 
   // to prevent browser with out login
   const { isAuth } = useSelector(state => state.user);
-  
   if(isLoading) return <FullScreenLoader />
   
   return (
@@ -61,13 +60,10 @@ function Layout() {
         <ToastContainer />
 
         <Routes>
-          
-        <Route path ='/auth' element = {isAuth ? <Navigate to ='/' /> :  <Auth />} />
-            
-
-        <Route path='/profile' element={<ProtectedRoutes><Profile /></ProtectedRoutes>}/>
-
+        
         <Route path='/' element={<ProtectedRoutes><Home /></ProtectedRoutes>}/>
+        <Route path ='/auth' element = {isAuth ? <Navigate to ='/' /> : <Auth />} />
+        <Route path='/profile' element={<ProtectedRoutes><Profile /></ProtectedRoutes>}/>
 
           <Route path ='/transactions' element ={<ProtectedRoutes><Transactions/></ProtectedRoutes>}/>    
           <Route path ='/expenses' element ={<ProtectedRoutes><Expense /></ProtectedRoutes>}/>
@@ -90,12 +86,7 @@ function Layout() {
         {/* HR */}
 
         <Route path='/attendance' element={<ProtectedRoutes><Attendance /></ProtectedRoutes>} />
-
-
-
         <Route path='/departments' element={<ProtectedRoutes><Departments /></ProtectedRoutes>} />
-
-
         <Route path='/jobs' element={<ProtectedRoutes><Jobs /></ProtectedRoutes>} />
 
         <Route path='/employees' element={<ProtectedRoutes><Employees /></ProtectedRoutes>} />
@@ -200,14 +191,13 @@ function Layout() {
 
         } />
 
-
-
+        <Route path='/*' element={<div>Not Found</div>}/>
 
         </Routes>
 
     </>
-  );
-};
+  )
+}
 
 
 
@@ -228,33 +218,6 @@ const App = () => {
    
       <Router>
           <Layout />      
-
-      {/* <Header />
-        
-        <ToastContainer />
-
-        <Routes>
-          
-          <Route path ='/auth' element ={<Auth />} />
-
-          <Route path ='/' element ={<Home />}/>
-          <Route path ='/transactions' element ={<Transactions/>}/>
-          <Route path ='/expense' element ={<Expense />}/>
-          <Route path ='/categories' element ={<Categories />}/>
-          <Route path ='/services' element ={<Services />}/>
-          <Route path ='/units' element ={<Units />}/>
-
-          <Route path ='/customers' element ={<Customers/>}/>
-          <Route path ='/representative' element ={<Representative/>} />
-          <Route path ='/suppliers' element ={<Suppliers />}/>
-
-          <Route path ='/sales' element ={<Sales />}/>
-          <Route path ='/buy' element ={<Buy />}/>
-          <Route path ='/invoices' element ={<Invoices />}/>
-
-        </Routes> */}
-
-
       </Router>
   );
 }
