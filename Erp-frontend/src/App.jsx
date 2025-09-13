@@ -76,15 +76,16 @@ function Layout() {
           <Route path ='/categories' element ={<ProtectedRoutes><Categories /></ProtectedRoutes>}/>
           <Route path ='/services' element ={<ProtectedRoutes><Services /></ProtectedRoutes>}/>
           <Route path ='/units' element ={<ProtectedRoutes><Units /></ProtectedRoutes>}/>
-
-          <Route path ='/customers' element ={<Customers/>}/>
+                
+          <Route path ='/customers' element ={<ProtectedRoutes><Customers/></ProtectedRoutes>}/>
           <Route path ='/representative' element ={<Representative/>} />
-          <Route path ='/suppliers' element ={<Suppliers />}/>
+          <Route path ='/suppliers' element ={<ProtectedRoutes><Suppliers /></ProtectedRoutes>}/>
 
-          <Route path ='/sales' element ={<Sales />}/>
-          <Route path ='/buy' element ={<Buy />}/>
-          <Route path ='/invoices' element ={<InvManagement />}/>
+          <Route path ='/sales' element ={<ProtectedRoutes><Sales /></ProtectedRoutes>}/>
+          <Route path ='/buy' element ={<ProtectedRoutes><Buy /></ProtectedRoutes>}/>
+          <Route path ='/invoices' element ={<ProtectedRoutes><InvManagement /></ProtectedRoutes>}/>
 
+        
         
         
         {/* HR */}
