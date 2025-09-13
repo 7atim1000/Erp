@@ -86,7 +86,7 @@ const InvManagement = () => {
         } else {
             fetchInvoices();
         }
-    }, [type, frequency, invoiceType, invoiceStatus, shift, search, sort]);
+    }, [type, frequency, invoiceType, invoiceStatus, shift, search, sort, customer, supplier]);
 
     // Percentage and count
     const totalInvoices = allInvoices.length;  
