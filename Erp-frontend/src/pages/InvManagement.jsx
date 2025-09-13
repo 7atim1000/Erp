@@ -36,7 +36,7 @@ const InvManagement = () => {
     // fetch Invoices
 
     const fetchInvoices = useCallback(async () => {
-       
+       setLoading(true);
         try {
             const response = await api.post('/api/invoice/fetch' , 
             {
@@ -71,7 +71,9 @@ const InvManagement = () => {
                 toast.error(error.message)
             }
             console.log(error)
-        } 
+        } finally {
+            setLoading(false);
+         }
     });
 
     const isInitialMount = useRef(true);
@@ -248,9 +250,7 @@ const InvManagement = () => {
 
                                  
                                 <tbody>
-                                    { allInvoices.length === 0
-                                    ? (<p className='ml-5 mt-5 text-xs text-[#be3e3f] flex items-start justify-start'>Your invoices list is empty .</p>)
-                                    :
+                                  
                                     allInvoices.map((invoice) =>{  
                                     
                                     return (   
@@ -307,10 +307,14 @@ const InvManagement = () => {
 
                                     </tfoot>
                                 )}
-
-
-
                         </table>
+                        {!loading && allInvoices.length === 0 && (
+                            <p className='ml-5 mt-5 text-xs text-[#be3e3f] flex items-start justify-start '>
+                                {search
+                                    ? `No invoice found for "${search}"`
+                                    : `Your invoices list is empty . Start adding invoice !`}
+                            </p>
+                        )}
                     
                                     
                     </div>
