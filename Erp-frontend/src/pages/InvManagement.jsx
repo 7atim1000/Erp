@@ -56,9 +56,6 @@ const InvManagement = () => {
                 },
             );
                 
-                setAllInvoices(response.data)
-                console.log(response.data)
-
             if (response.data.success) {
                 setAllInvoices(response.data.data || []);
               
@@ -86,7 +83,7 @@ const InvManagement = () => {
         } else {
             fetchInvoices();
         }
-    }, [type, frequency, invoiceType, invoiceStatus, shift, search, sort, customer, supplier]);
+    }, [type, frequency, invoiceType, invoiceStatus, shift, search, sort]);
 
     // Percentage and count
     const totalInvoices = allInvoices.length;  
