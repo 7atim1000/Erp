@@ -73,10 +73,9 @@ const getInvoices = async (req, res, next) => {
         const startIndex = (page - 1) * limit;
         // const endIndex = page * limit;
         const total = await Invoice.countDocuments(query).populate([
-            {
+           {
                 path: "customer",
-                select: ["email", "customerName"] ,
-                // select: "email customerName" ,
+                select: "email",
             },
             {
                 path: "supplier",
