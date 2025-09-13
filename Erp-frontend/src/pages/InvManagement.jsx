@@ -36,7 +36,7 @@ const InvManagement = () => {
     // fetch Invoices
 
     const fetchInvoices = useCallback(async () => {
-        setLoading(true)
+       
         try {
             const response = await api.post('/api/invoice/fetch' , 
             {
@@ -71,9 +71,7 @@ const InvManagement = () => {
                 toast.error(error.message)
             }
             console.log(error)
-        } finally {
-            setLoading(false);
-         }
+        } 
     });
 
     const isInitialMount = useRef(true);
