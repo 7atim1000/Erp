@@ -250,7 +250,9 @@ const InvManagement = () => {
 
                                  
                                 <tbody>
-                                    { 
+                                    { allInvoices.length === 0
+                                    ? (<p className='ml-5 mt-5 text-xs text-[#be3e3f] flex items-start justify-start'>Your invoices list is empty .</p>)
+                                    :
                                     allInvoices.map((invoice) =>{  
                                     
                                     return (   
@@ -311,13 +313,7 @@ const InvManagement = () => {
 
 
                         </table>
-                        {!loading && allInvoices.length === 0 && (
-                            <p className='ml-5 mt-5 text-xs text-[#be3e3f] flex items-start justify-start '>
-                                {search
-                                    ? `No invoice found for "${search}"`
-                                    : `Your invoices list is empty . Start adding invoice !`}
-                            </p>
-                        )}
+                    
                                     
                     </div>
             
