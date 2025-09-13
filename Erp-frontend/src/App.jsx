@@ -17,25 +17,6 @@ import { ToastContainer } from 'react-toastify';
 
 import FullScreenLoader from './components/shared/FullScreenLoader';
 
-// Place this once in your app (e.g., in App.jsx or a setup file)
-// called  Axios interceptor to fix :-
-// means your backend requires authentication, but your request is missing the Authorization token.
-
-// import axios from 'axios' 
-
-// axios.interceptors.request.use((config) => {
-//   const token = localStorage.getItem('token');
-//   if (token) {
-//     config.headers.Authorization = `Bearer ${token}`;
-//   }
-//   return config;
-// });
-
-// ...rest of your App.jsx code...
-// Place this once in your app (e.g., in App.jsx or a setup file)
-
-// export const backendUrl =  import.meta.env.VITE_BACKEND_URL
-
 function Layout() {
 
   // useLoadData();
@@ -66,7 +47,7 @@ function Layout() {
         <Route path='/profile' element={<ProtectedRoutes><Profile /></ProtectedRoutes>}/>
 
           <Route path ='/transactions' element ={<ProtectedRoutes><Transactions/></ProtectedRoutes>}/>    
-          <Route path ='/expenses' element ={<ProtectedRoutes><Expense /></ProtectedRoutes>}/>
+          <Route path ='/expenses' element ={<Expense />} />
            <Route path ='/incomes' element ={<ProtectedRoutes><Incomes /></ProtectedRoutes>}/>
 
           <Route path ='/categories' element ={<ProtectedRoutes><Categories /></ProtectedRoutes>}/>
