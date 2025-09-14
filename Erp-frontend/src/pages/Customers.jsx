@@ -383,7 +383,7 @@ const Customers = () => {
                             </tr>
                         </tfoot>
                 </table>
-                {!loading && list.length === 0 && (
+                {list.length === 0 && (
                     <p className ='ml-5 mt-5 text-xs text-[#be3e3f] flex items-start justify-start '>
                         {search
                         ? `No customers found for "${search}"` 
