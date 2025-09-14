@@ -32,9 +32,10 @@ const Customers = () => {
         
     // fetch customers - any error on .map or length check next function
     const [list, setList] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('-createdAt');
-    const [loading, setLoading] = useState(false);
+    
     const [pagination, setPagination] = useState({
         currentPage: 1,
         itemsPerPage: 10,
