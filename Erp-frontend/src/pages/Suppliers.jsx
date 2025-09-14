@@ -89,11 +89,11 @@ const Suppliers = () => {
 
     const isInitialMount = useRef(true);
     useEffect(() => {
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-        } else {
+       // if (isInitialMount.current) {
+       //     isInitialMount.current = false;
+       // } else {
             fetchSuppliers();
-        }
+       // }
     }, [search, sort, pagination.currentPage, pagination.itemsPerPage]);
 
 
