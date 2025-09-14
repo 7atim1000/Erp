@@ -13,16 +13,19 @@ const useLoadData = () => {
     const fetchUser = async () => {
         try {
             const { data } = await getUserData();
-            console.log(data);
-
-            const { _id, employeeNo, name, password, email, phone, role, department, userJob, jobNo, jobDate, userSalary, image } = data.data;
-            dispatch(setUser({ _id, employeeNo, name, password, email, phone, role, department, userJob, jobNo, jobDate,  userSalary, image }));
+               if (data?.success) {
+                  const { _id, employeeNo, name, password, email, phone, role, department, userJob, jobNo, jobDate, userSalary, image } = data.data;
+                  dispatch(setUser({ _id, employeeNo, name, password, email, phone, role, department, userJob, jobNo, jobDate,  userSalary, image }));
         
+                } else {
+                    throw new Error("No user data");
+                }
         
         } catch (error) {
+           document.cookie = 'accessToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             dispatch(removeUser());
             navigate('/auth');
-            console.log(error);
+          
         
         } finally {
           setIsLoading(false);
