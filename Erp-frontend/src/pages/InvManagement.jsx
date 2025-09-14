@@ -57,7 +57,7 @@ const InvManagement = () => {
             );
                 
             if (response.data.success) {
-                setAllInvoices(response.data.data || []);
+                setAllInvoices(response.data.data || response.data.invoices || []);
               
             } else {
                 toast.error(response.data.message || 'invocies not found')
