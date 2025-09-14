@@ -78,11 +78,11 @@ const InvManagement = () => {
 
     const isInitialMount = useRef(true);
     useEffect(() => {
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-        } else {
+      //  if (isInitialMount.current) {
+      //      isInitialMount.current = false;
+     //   } else {
             fetchInvoices();
-        }
+      //  }
     }, [type, frequency, invoiceType, invoiceStatus, shift, search, sort]);
 
     // Percentage and count
